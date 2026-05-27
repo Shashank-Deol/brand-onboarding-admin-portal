@@ -1,0 +1,124 @@
+.markdown-doc {
+  max-width: 52rem;
+  line-height: 1.72;
+  font-size: 0.95rem;
+}
+
+.markdown-doc h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.2;
+}
+
+.markdown-doc h2 {
+  margin: 2rem 0 0.75rem;
+  padding-top: 0.75rem;
+  font-size: 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+}
+
+.markdown-doc h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.markdown-doc p,
+.markdown-doc ul,
+.markdown-doc ol {
+  margin: 0 0 0.85rem;
+}
+
+.markdown-doc ul,
+.markdown-doc ol {
+  padding-left: 1.35rem;
+}
+
+.markdown-doc li {
+  margin-bottom: 0.35rem;
+}
+
+.markdown-doc table {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.markdown-doc th,
+.markdown-doc td {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--color-border) 92%, transparent);
+  text-align: left;
+}
+
+.markdown-doc th {
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  font-weight: 600;
+}
+
+.markdown-doc blockquote {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-muted);
+  border-radius: 0 12px 12px 0;
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.markdown-doc pre:not(.doc-mermaid) {
+  overflow-x: auto;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  background: color-mix(in srgb, var(--color-surface-2) 84%, transparent);
+  font-size: 0.8rem;
+}
+
+.markdown-doc .doc-inline-code {
+  padding: 0.14em 0.4em;
+  border-radius: 6px;
+  font-size: 0.88em;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+.markdown-doc a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.markdown-doc a:hover {
+  text-decoration: underline;
+}
+
+.doc-mermaid {
+  margin: 1rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--color-surface-2) 84%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-mermaid--loading {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.doc-mermaid--error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-danger);
+  font-size: 0.8rem;
+}
+
+.doc-mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
