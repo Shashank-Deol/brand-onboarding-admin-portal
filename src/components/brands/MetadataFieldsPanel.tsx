@@ -49,7 +49,7 @@ export default function MetadataFieldsPanel({ brandId, fields, onChange }: Props
       setForm(EMPTY_FORM)
       setEditingId(null)
       onChange()
-      await alert({
+      void alert({
         title: 'Saved',
         message: wasEditing
           ? 'Metadata field mapping updated.'

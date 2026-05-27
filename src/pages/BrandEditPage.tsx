@@ -100,7 +100,7 @@ export default function BrandEditPage() {
         notes: identity.notes || null,
       })
       setBrand(updated)
-      await alert({
+      void alert({
         title: 'Saved',
         message: 'Brand details saved.',
         tone: 'success',
@@ -127,7 +127,7 @@ export default function BrandEditPage() {
     try {
       const updated = await updateBrandConfig(brandId, section)
       setConfig(updated)
-      await alert({
+      void alert({
         title: 'Saved',
         message: 'Configuration saved.',
         tone: 'success',

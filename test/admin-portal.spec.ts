@@ -25,7 +25,9 @@ test('admin portal full smoke flow', async ({ page }) => {
   await page.getByLabel('Notes').fill('Created by Playwright smoke test.')
   await page.getByRole('button', { name: 'Create brand' }).click()
 
-  await expect(page).toHaveURL(new RegExp('/brands/[^/]+$'))
+  await expect(page).toHaveURL(/\/brands\/(?!new)[^/]+$/)
+  const brandEditPath = new URL(page.url()).pathname
+  await expect(page.getByRole('heading', { name: brandName })).toBeVisible()
   await expect(page.getByText('Onboarding Progress')).toBeVisible()
 
   // Branding tab
@@ -121,10 +123,9 @@ test('admin portal full smoke flow', async ({ page }) => {
   await page.getByRole('link', { name: 'API reference', exact: true }).click()
   await expect(page.getByRole('heading', { name: 'API reference' })).toBeVisible()
 
-  // Cleanup: delete brand
-  await page.goto('/')
-  await page.getByPlaceholder('Search brand by name or slug').fill(brandSlug)
-  await page.getByRole('link', { name: 'Edit' }).first().click()
+  // Cleanup: delete brand (direct URL — test brands are hidden on the list by default)
+  await page.goto(brandEditPath)
+  await expect(page.getByRole('heading', { name: brandName })).toBeVisible()
   await page.getByRole('button', { name: 'Delete brand' }).click()
   const deleteDialog = page.getByRole('dialog', { name: 'Delete brand' })
   await expect(deleteDialog).toBeVisible()
